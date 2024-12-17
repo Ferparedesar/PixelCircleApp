@@ -1,0 +1,10 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+    <servlet>
+        <servlet-name>PixelCircleServlet</servlet-name>
+        <servlet-class>com.pixelcircle.PixelCircleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PixelCircleServlet</servlet-name>
+        <url-pattern>/PixelCircle</url-pattern>
+    </servlet-mapping>
+</web-app>
