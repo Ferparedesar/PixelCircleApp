@@ -1,0 +1,16 @@
+{
+  "name": "pixelcircleapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "description": "Este proyecto es una aplicaci�n web en Java que muestra un p�xel girando en c�rculos mediante un lienzo HTML5.",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -9,62 +9,33 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/PixelCircle")
 public class PixelCircleServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.getWriter().println("""
-            <!DOCTYPE html>
-            <html lang='en'>
-            <head>
-                <meta charset='UTF-8'>
-                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                <title>Pixel Circle Animation</title>
-                <style>
-                    body {
-                        margin: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100vh;
-                        background-color: #f0f0f0;
-                        overflow: hidden;
-                    }
-                    #canvas {
-                        border: 1px solid black;
-                    }
-                </style>
-            </head>
-            <body>
-                <canvas id='canvas' width='400' height='400'></canvas>
-                <script>
-                    const canvas = document.getElementById('canvas');
-                    const ctx = canvas.getContext('2d');
-
-                    let angle = 0;
-                    const radius = 100;
-                    const centerX = canvas.width / 2;
-                    const centerY = canvas.height / 2;
-
-                    function drawPixel(x, y) {
-                        ctx.fillStyle = 'red';
-                        ctx.fillRect(x, y, 5, 5);
-                    }
-
-                    function animate() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                        const x = centerX + radius * Math.cos(angle);
-                        const y = centerY + radius * Math.sin(angle);
-
-                        drawPixel(x, y);
-
-                        angle += 0.05; // Increment angle for animation
-                        requestAnimationFrame(animate);
-                    }
-
-                    animate();
-                </script>
-            </body>
-            </html>
-        """);
+        response.getWriter().println("<!DOCTYPE html>");
+        response.getWriter().println("<html>");
+        response.getWriter().println("<head><title>Pixel Circle</title></head>");
+        response.getWriter().println("<body>");
+        response.getWriter().println("<canvas id='canvas' width='500' height='500'></canvas>");
+        response.getWriter().println("<script>");
+        response.getWriter().println("var canvas = document.getElementById('canvas');");
+        response.getWriter().println("var ctx = canvas.getContext('2d');");
+        response.getWriter().println("var angle = 0;");
+        response.getWriter().println("function drawCircle() {");
+        response.getWriter().println("  ctx.clearRect(0, 0, canvas.width, canvas.height);");
+        response.getWriter().println("  var x = 250 + 100 * Math.cos(angle);");
+        response.getWriter().println("  var y = 250 + 100 * Math.sin(angle);");
+        response.getWriter().println("  ctx.beginPath();");
+        response.getWriter().println("  ctx.arc(x, y, 5, 0, Math.PI * 2, true);");
+        response.getWriter().println("  ctx.fill();");
+        response.getWriter().println("  angle += 0.05;");
+        response.getWriter().println("  requestAnimationFrame(drawCircle);");
+        response.getWriter().println("}");
+        response.getWriter().println("drawCircle();");
+        response.getWriter().println("</script>");
+        response.getWriter().println("</body>");
+        response.getWriter().println("</html>");
     }
 }
